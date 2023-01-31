@@ -63,7 +63,16 @@ function populateDates(e) {
     if (selectedDay == (i + 1) && selectedMonth === month && selectedYear === year) {
       dayEl.classList.add('selected');
     }
-
+    dayEl.addEventListener('click', () => {
+      selectedDate = new Date(year + '-' + (month + 1) + '-' + (i + 1));
+      selectedDay = (i + 1);
+      selectedMonth = month;
+      selectedYear = year;
+      selectedDateEl.textContent = formatDate(selectedDay, selectedMonth, selectedYear);
+      selectedDateEl.dataset.value = selectedDate;
+      toggleDatePicker();
+      populateDates();
+    });
     daysEl.appendChild(dayEl);
   }
 }
