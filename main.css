@@ -1,3 +1,11 @@
+:root {
+  --color-white: #fff;
+  --color-dark-gray: #313131;
+  --color-green-blue: #00ca85;
+  --color-dark-white: #eee;
+  --color-yellow: #ffce00;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,13 +13,13 @@
 }
 
 body {
-  background-color: #ffce00;
+  background-color: var(--color-yellow);
   font-family: 'Saire', Arial, Helvetica, sans-serif;
 }
 
 h1 {
   margin: 30px 0;
-  color: #313131;
+  color: var(--color-dark-gray);
   font-size: 42px;
   font-weight: 900;
   text-align: center;
@@ -27,32 +35,80 @@ h1 span {
   width: 100%;
   max-width: 320px;
   height: 60px;
-  background-color: #fff;
+  background-color: var(--color-white);
   margin: 30px auto;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   user-select: none;
+  transition: background-color 0.3s;
 }
 
 .date-picker:hover {
-  background-color: #f3f3f3;
+  background-color: var(--color-dark-white);
 }
 
-.date-picker .selected-date {
+.selected-date {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #313131;
+  color: var(--color-dark-gray);
   font-size: 28px;
 }
 
-.date-picker .dates {
+.dates {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  background-color: #fff;
+  background-color: var(--color-white);
+}
+
+.dates.active {
+  display: block;
+}
+
+.month {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-dark-white);
+}
+
+.arrows {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-dark-gray);
+  font-synthesis: 20px;
+  transition: background-color 0.3s;
+}
+
+.arrows:hover {
+  background-color: var(--color-dark-white);
+}
+
+.arrows:active {
+  background-color: var(--color-green-blue);
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 200px;
+}
+
+.days .day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-dark-gray);
+}
+
+.day.selected {
+  background-color: var(--color-green-blue);
 }
