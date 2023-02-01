@@ -74,10 +74,8 @@ function populateWeekDays() {
 
 function populateDates(e) {
   daysEl.innerHTML = '';
-  console.log(month, year);
-  let firstDayMonth = new Date(year, month, 1).getDay();
-  console.log(firstDayMonth);
-  for (let i = 0; i < firstDayMonth; i++) {
+  let firstDayOfMonth = new Date(year, month, 1).getDay();
+  for (let i = 0; i < firstDayOfMonth; i++) {
     emptyDayEl = document.createElement('div');
     emptyDayEl.classList.add('empty');
     daysEl.appendChild(emptyDayEl);
