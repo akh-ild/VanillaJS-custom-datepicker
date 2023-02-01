@@ -96,17 +96,30 @@ h1 span {
   background-color: var(--color-green-blue);
 }
 
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 50px;
+  border-bottom: 1px solid var(--color-dark-gray);
+}
+
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  height: 200px;
 }
 
-.days .day {
+.days .day,
+.week .week-day {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50px;
   color: var(--color-dark-gray);
+}
+
+.days .empty {
+  pointer-events: none;
+  height: 50px;
 }
 
 .day.selected {
